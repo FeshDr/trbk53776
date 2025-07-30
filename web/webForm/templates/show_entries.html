@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Просмотр записей{% endblock %}
+
+{% block content %}
+<h1>Сохранённые записи</h1>
+
+<ul>
+    {% for item in entries %}
+        <li>{{ item.data }}</li>
+    {% empty %}
+        <li>Нет данных для отображения</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

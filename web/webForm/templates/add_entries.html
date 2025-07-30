@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Создание записи{% endblock %}
+
+{% block content %}
+<h1>Создать динамическую запись</h1>
+
+<form method="post" action="{% url 'webForm:add_entries' %}">
+    {% csrf_token %}
+    <div id="inputs-container">
+        <input type="text" name="name0" placeholder="name0" />
+    </div>
+
+    <input type="hidden" name="names_json" id="names_json" />
+
+    <button type="button" id="add-input">Добавить input</button>
+    <button type="submit">Отправить</button>
+</form>
+
+
+<script>
+    $(document).ready(function () {
+        let count = 1;
+
+        $('#add-input').on('click', function () {
+            const newInput = $(`
+                <input type="text" name="name${count}" placeholder="name${count}" />
+            `);
+            $('#inputs-container').append(newInput);
+            count++;
+        });
+
+        $('form').on('submit', function (e) {
+            const data = {};
+
+            $('#inputs-container input').each(function () {
+                if (this.name) {
+                    data[this.name] = this.value;
+                }
+            });
+
+            $('#names_json').val(JSON.stringify(data));
+        });
+    });
+</script>
+
+{% endblock %}

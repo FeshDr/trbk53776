@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}{% endblock %}</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        
+        body, h1, ul {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f9f9f9;
+            color: #333;
+            padding: 20px;
+        }
+        nav {
+            margin-bottom: 20px;
+        }
+        nav a {
+            color: #007BFF;
+            text-decoration: none;
+            margin-right: 15px;
+            font-weight: 600;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        hr {
+            margin-bottom: 20px;
+            border: none;
+            border-bottom: 1px solid #ddd;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-weight: 700;
+            color: #222;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgb(0 0 0 / 0.1);
+            max-width: 500px;
+        }
+        #inputs-container input[type="text"] {
+            display: block;
+            width: 100%;
+            padding: 8px 10px;
+            margin-bottom: 12px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.2s;
+        }
+        #inputs-container input[type="text"]:focus {
+            border-color: #007BFF;
+            outline: none;
+        }
+        button {
+            background-color: #007BFF;
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 10px 16px;
+            margin-right: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        ul {
+            list-style-type: none;
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgb(0 0 0 / 0.1);
+        }
+        ul li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            font-size: 1.1rem;
+        }
+        ul li:last-child {
+            border-bottom: none;
+        }
+        
+        ul li:empty {
+            color: #999;
+            font-style: italic;
+        }
+    </style>
+
+</head>
+<body>
+    <nav>
+        <a href="{% url 'webForm:add_entries' %}">Создать запись</a> |
+        <a href="{% url 'webForm:show_entries' %}">Просмотр записей</a>
+    </nav>
+
+
+    <hr />
+
+    {% block content %}
+    {% endblock %}
+</body>
+</html>
