@@ -2,11 +2,11 @@
 
 ## 1. Склонировать репозиотрий командой 
 ```sh
-git clone https://github.com/FeshDr/IMPULS_Task
+git clone https://github.com/FeshDr/trbk53776
 ```
 ## 2. Перейти в директорию проекта:
 ```sh
-cd myproject123
+cd trbk56776
 ```
 ## 3. Перейти в директорию со скриптами для дэплоя:
 ```sh
